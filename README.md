@@ -1,5 +1,6 @@
 # ZCode Edge Controller
 
+[![Release](https://img.shields.io/github/v/release/W-A1/zcode-edge-controller?color=brightgreen&label=release)](https://github.com/W-A1/zcode-edge-controller/releases/latest)
 [![Node](https://img.shields.io/badge/node-%E2%89%A518.17-339933?logo=node.js&logoColor=white)](https://nodejs.org)
 [![Manifest](https://img.shields.io/badge/Manifest-V3-0078D7?logo=microsoftedge&logoColor=white)](https://developer.chrome.com/docs/extensions/mv3/)
 [![Dependencies](https://img.shields.io/badge/deps-1%20(ws)-blueviolet)](package.json)
@@ -9,6 +10,8 @@
 让 **AI Agent 安全地控制 Microsoft Edge** —— MV3 扩展 + 本地网关 + MCP，可选 CDP 增强。
 
 支持 **ZCode / Claude Desktop / Cursor** 等任意 MCP 客户端，也可直接走 REST/WebSocket。
+
+> **📦 开箱即用**：从 [Releases](https://github.com/W-A1/zcode-edge-controller/releases/latest) 下载扩展 zip，解压后即可在 Edge 加载。
 
 ```
 ┌──────────────┐  MCP stdio   ┌────────────────────────┐  WebSocket   ┌──────────────┐
