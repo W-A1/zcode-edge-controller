@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body class="zc">
+  <header>
+    <span id="dot" class="dot off"></span>
+    <div>
+      <strong>ZCode Edge Controller</strong>
+      <div id="sub" class="sub">检查中…</div>
+    </div>
+  </header>
+
+  <section id="approval" class="approval hidden">
+    <div class="approval-title">⚠ 待批准的写操作（60s 超时自动拒绝）</div>
+    <div id="ap-cmd" class="mono"></div>
+    <pre id="ap-params" class="mono small"></pre>
+    <div class="row">
+      <button id="ap-yes" class="btn primary">批准执行</button>
+      <button id="ap-no" class="btn danger">拒绝</button>
+    </div>
+  </section>
+
+  <section class="card">
+    <label>安全模式</label>
+    <div class="modes">
+      <label class="mode"><input type="radio" name="mode" value="readonly" /><span><b>只读</b><small>仅允许读命令</small></span></label>
+      <label class="mode"><input type="radio" name="mode" value="confirm-writes" /><span><b>写需确认</b><small>写命令弹窗批准</small></span></label>
+      <label class="mode"><input type="radio" name="mode" value="auto" /><span><b>自动</b><small>高危仍需确认</small></span></label>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="row between">
+      <label>CDP 通道（默认关闭，按需启用）</label>
+      <span id="cdp-dot" class="dot off" title="CDP 状态"></span>
+    </div>
+    <div id="cdp-state" class="small" style="color:#94a3b8;margin-bottom:6px;">状态检查中…</div>
+    <div class="row">
+      <button id="cdp-enable" class="btn primary">启用 CDP</button>
+      <button id="cdp-disable" class="btn">停用 CDP</button>
+    </div>
+    <div class="hint">启用后自动拉起带远程调试的 Edge 实例：深度 JS/文件上传/网络捕获/可信事件走 CDP，普通读写仍走扩展桥</div>
+  </section>
+
+  <section class="card">
+    <label for="token">网关 Token（配对码）</label>
+    <input id="token" type="password" placeholder="粘贴 server/.token 内容" autocomplete="off" />
+    <label for="url">网关地址</label>
+    <input id="url" type="text" placeholder="ws://127.0.0.1:9223/bridge" />
+    <div class="row">
+      <button id="save" class="btn primary">保存并重连</button>
+      <button id="reconnect" class="btn">重连</button>
+    </div>
+    <div class="hint">token 来自网关启动输出或 server/.token 文件</div>
+  </section>
+
+  <section class="card">
+    <div class="row between">
+      <label>运行日志（最近 120 条）</label>
+      <div class="row">
+        <button id="copyaudit" class="mini">复制审计</button>
+        <button id="clearlog" class="mini">清空</button>
+      </div>
+    </div>
+    <pre id="logbox" class="mono small logbox"></pre>
+  </section>
+
+  <footer>ZCode Agent ↔ Edge 桥 · MV3</footer>
+  <script type="module" src="popup.js"></script>
+</body>
+</html>

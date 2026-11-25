@@ -1,0 +1,30 @@
+# ---------- 依赖 ----------
+node_modules/
+package-lock.json
+
+# ---------- 运行时产物与本地状态（不入库）----------
+logs/
+dist/
+.edge-profile/
+
+# ---------- 敏感凭据（务必不要提交）----------
+server/.token
+*.token
+.env
+.env.*
+
+# ---------- 编辑器/系统 ----------
+.vscode/
+.idea/
+*.swp
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ---------- 打包副产物 ----------
+*.zip
+*.log
+
+# ---------- 测试临时文件 ----------
+tests/pentest/*.local.*
+*.tmp

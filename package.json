@@ -1,0 +1,26 @@
+{
+  "name": "zcode-edge-controller",
+  "version": "1.5.1",
+  "private": true,
+  "type": "module",
+  "description": "ZCode Agent 的 Edge 浏览器控制通道：MV3 扩展桥 + 本地网关（MCP / REST / WebSocket）+ CDP 备用通路",
+  "engines": {
+    "node": ">=18.17"
+  },
+  "scripts": {
+    "gateway": "node server/cli.mjs --gateway",
+    "mcp": "node server/cli.mjs --mcp",
+    "dev": "node scripts/dev.mjs",
+    "smoke": "node scripts/smoke-test.mjs",
+    "dev-check": "node scripts/dev-check.mjs",
+    "launch-edge": "node scripts/launch-edge.mjs",
+    "pack": "node scripts/pack.mjs",
+    "test": "node tests/unit.mjs && node tests/e2e-mcp.mjs && node tests/e2e-gateway.mjs",
+    "test:unit": "node tests/unit.mjs",
+    "test:mcp": "node tests/e2e-mcp.mjs",
+    "test:gateway": "node tests/e2e-gateway.mjs"
+  },
+  "dependencies": {
+    "ws": "^8.23.0"
+  }
+}

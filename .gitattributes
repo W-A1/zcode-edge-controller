@@ -1,0 +1,8 @@
+# 统一换行符，避免 Windows/Linux 协作时的全文件 diff
+* text=auto eol=lf
+
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.zip binary
+*.ico binary

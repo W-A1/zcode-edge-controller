@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "ZCode Edge Controller",
+  "version": "1.5.1",
+  "description": "让 ZCode Agent 通过本地网关安全地控制 Edge：标签页、导航、DOM 读取、点击输入、截图、执行 JS。",
+  "permissions": [
+    "tabs",
+    "scripting",
+    "debugger",
+    "storage",
+    "alarms"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background/service-worker.js",
+    "type": "module"
+  },
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_title": "ZCode Edge Controller"
+  }
+}

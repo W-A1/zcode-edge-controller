@@ -1,0 +1,189 @@
+{
+  "at": "2026-11-23T00:54:35.582Z",
+  "mode1": "纯扩展降级模式",
+  "results": [
+    {
+      "step": 1,
+      "tool": "edge_cdp_control(status)",
+      "via": "gateway",
+      "ok": true,
+      "detail": "模式=纯扩展降级模式 | 扩展桥=在线 | strong=5 条"
+    },
+    {
+      "step": 1,
+      "tool": "edge_status",
+      "via": "-",
+      "ok": true,
+      "detail": "commands=24 | cdp=false | 连接=undefined"
+    },
+    {
+      "step": 2,
+      "tool": "edge_navigate",
+      "via": "ext",
+      "ok": true,
+      "detail": "沙箱页就绪"
+    },
+    {
+      "step": 2,
+      "tool": "list_tabs",
+      "via": "ext",
+      "ok": true,
+      "detail": "count=8"
+    },
+    {
+      "step": 2,
+      "tool": "get_page_text",
+      "via": "ext",
+      "ok": true,
+      "detail": "bytes=662"
+    },
+    {
+      "step": 2,
+      "tool": "simple_click",
+      "via": "ext",
+      "ok": true,
+      "detail": "命中 btn-a"
+    },
+    {
+      "step": 2,
+      "tool": "simple_type",
+      "via": "ext",
+      "ok": true,
+      "detail": "已输入（弹窗授权）"
+    },
+    {
+      "step": 2,
+      "tool": "basic_screenshot",
+      "via": "ext",
+      "ok": true,
+      "detail": "27KB"
+    },
+    {
+      "step": 3,
+      "tool": "native_click",
+      "via": "ext",
+      "ok": true,
+      "detail": "降级执行 → 点击 "
+    },
+    {
+      "step": 3,
+      "tool": "evaluate_js_context",
+      "via": "ext",
+      "ok": true,
+      "detail": "降级执行 → n=42"
+    },
+    {
+      "step": 3,
+      "tool": "full_screenshot",
+      "via": "ext",
+      "ok": true,
+      "detail": "降级执行 → 67KB"
+    },
+    {
+      "step": 3,
+      "tool": "network_intercept",
+      "via": "ext",
+      "ok": true,
+      "detail": "降级执行 → 三段式完成"
+    },
+    {
+      "step": 3,
+      "tool": "page_capture",
+      "via": "组合",
+      "ok": true,
+      "detail": "降级执行 → 组合快照"
+    },
+    {
+      "step": 4,
+      "tool": "edge_cdp_control(enable)",
+      "via": "gateway",
+      "ok": true,
+      "detail": "端口 9222（网关拉起）"
+    },
+    {
+      "step": 4,
+      "tool": "evaluate_js_context(导航)",
+      "via": "cdp",
+      "ok": true,
+      "detail": "CDP 页面指向沙箱"
+    },
+    {
+      "step": 4,
+      "tool": "页面加载等待",
+      "via": "-",
+      "ok": true,
+      "detail": "readyState=complete"
+    },
+    {
+      "step": 4,
+      "tool": "native_click(可信事件)",
+      "via": "cdp",
+      "ok": true,
+      "detail": "命中 按钮 A 坐标 75,197"
+    },
+    {
+      "step": 4,
+      "tool": "evaluate_js_context(状态验证)",
+      "via": "cdp",
+      "ok": true,
+      "detail": "页面日志=\"绪，等待命令... [08:54:31] 点击了 btn-a\""
+    },
+    {
+      "step": 4,
+      "tool": "network_intercept(捕获)",
+      "via": "cdp",
+      "ok": true,
+      "detail": "fetch 触发捕获 1 条"
+    },
+    {
+      "step": 4,
+      "tool": "full_screenshot(真CDP)",
+      "via": "cdp",
+      "ok": true,
+      "detail": "68KB"
+    },
+    {
+      "step": 5,
+      "tool": "CDP 实例被杀 → 调用",
+      "via": "-",
+      "ok": true,
+      "detail": "明确报错非崩溃: 命令失败: fetch failed"
+    },
+    {
+      "step": 5,
+      "tool": "edge_cdp_control(disable) 清理会话",
+      "via": "gateway",
+      "ok": true,
+      "detail": "失效会话已清理"
+    },
+    {
+      "step": 5,
+      "tool": "edge_cdp_control(enable) 重拉",
+      "via": "gateway",
+      "ok": true,
+      "detail": "自动重拉 Edge 实例"
+    },
+    {
+      "step": 5,
+      "tool": "恢复后 CDP 调用",
+      "via": "cdp",
+      "ok": true,
+      "detail": "恢复正常"
+    },
+    {
+      "step": 5,
+      "tool": "edge_cdp_control(disable) 终态",
+      "via": "gateway",
+      "ok": true,
+      "detail": "回到纯扩展降级模式"
+    }
+  ],
+  "viaDist": {
+    "gateway": 5,
+    "-": 3,
+    "ext": 10,
+    "组合": 1,
+    "cdp": 6
+  },
+  "failed": []
+}
